@@ -32,7 +32,7 @@ def calculate_size(text):
 def draw_apps(apps):
     adding_y = -40 # The y value of apps starts x pixels from the top of the screen
     for app_key in apps:
-        print(app_key)
+        #print(app_key)
         width, height = calculate_size(apps[app_key]["Name"])
         x = (300 - width) // 2
         adding_y = adding_y + height + 40
@@ -82,6 +82,7 @@ while True:
         if selected_index < 0:
             selected_index = len(app_keys) - 1
     current_app = app_keys[selected_index]
+    print(current_app) # Printing the selected app
     draw.text((45, apps[current_app]["Position"][1]), ">", font = font, fill = 0)
     draw_apps(apps) 
     epd.display_Partial(epd.getbuffer(ScreenImage1))

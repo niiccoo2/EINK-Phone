@@ -9,14 +9,16 @@ from __future__ import print_function
 
 import logging
 
-from gsmmodem.modem import GsmModem, SentSms
+from gsmmodem.modem import GsmModem, SentSms  # type: ignore
+# import logging
+# logging.basicConfig(level=logging.DEBUG)
 
 # PORT = 'COM5' # ON WINDOWS, Port is from COM1 to COM9 ,
 # We can check using the 'mode' command in cmd
 PORT = '/dev/ttyUSB2'
 BAUDRATE = 115200
 SMS_TEXT = 'A good teacher is like a candle, it consumes itself to light the way for others.'
-SMS_DESTINATION = 'YOUR PHONE NUMBER HERE'
+SMS_DESTINATION = '6172060139'
 PIN = None  # SIM card PIN (if any)
 
 

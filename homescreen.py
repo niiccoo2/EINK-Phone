@@ -13,6 +13,8 @@ import time
 from PIL import Image,ImageDraw,ImageFont
 import random
 from func import *
+from phone import *
+from messages import *
 
 epd = epd4in2_V2.EPD()
 

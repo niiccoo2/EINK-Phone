@@ -41,13 +41,13 @@ def draw_apps(apps):
 
 apps = {
     "Messages": {
-    "Name": "Messages",
-    "Path": "./Messages.py",
-    "Position": (0, 0),
+        "Name": "Messages",
+        "Function": messages(),
+        "Position": (0, 0),
     },
     "Phone": {
         "Name": "Phone",
-        "Path": "./Phone.py",
+        "Function": phone(),
         "Position": (0, 0),
     }
 }
@@ -81,6 +81,10 @@ while True:
         selected_index = selected_index - 1
         if selected_index < 0:
             selected_index = len(app_keys) - 1
+    elif user_input == "e":
+        print("Running the selected app")
+        apps[app_keys[selected_index]]["Function"]
+        
     current_app = app_keys[selected_index]
     print(current_app) # Printing the selected app
     draw.text((45, apps[current_app]["Position"][1]), ">", font = font, fill = 0)

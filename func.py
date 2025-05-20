@@ -20,11 +20,3 @@ def sleep():
     epd4in2_V2.epdconfig.module_exit(cleanup=True)
     print("Done!")
     exit()
-
-def messages():
-    print("Running messages")
-    return
-
-def phone():
-    print("Running phone")
-    return

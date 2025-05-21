@@ -8,13 +8,12 @@ if os.path.exists(libdir):
     sys.path.append(libdir)
 
 import logging
-from waveshare_epd import epd4in2_V2 # type: ignore
 import time
-from PIL import Image,ImageDraw,ImageFont
 import random
+from PIL import Image,ImageDraw,ImageFont
+from waveshare_epd import epd4in2_V2 # type: ignore
 from func import *
-from phone import *
-from messages import *
+from modem import *
 
 epd = epd4in2_V2.EPD()
 
@@ -41,15 +40,20 @@ def draw_apps(apps):
         draw.text((x, adding_y), apps[app_key]["Name"], font = font, fill = 0)
         apps[app_key]["Position"] = (x, adding_y)
 
+def text_rcv():
+    init_modem()
+    modem()
+
 apps = {
     "Messages": {
         "Name": "Messages",
-        "Function": messages(),
+        #"Function": messages(),
+        "Function": text_rcv, NEVER GETS THE TEXT FIX
         "Position": (0, 0),
     },
     "Phone": {
         "Name": "Phone",
-        "Function": phone(),
+        "Function": sleep,
         "Position": (0, 0),
     }
 }
@@ -85,7 +89,7 @@ while True:
             selected_index = len(app_keys) - 1
     elif user_input == "e":
         print("Running the selected app")
-        apps[app_keys[selected_index]]["Function"]
+        apps[app_keys[selected_index]]["Function"]()
         
     current_app = app_keys[selected_index]
     print(current_app) # Printing the selected app

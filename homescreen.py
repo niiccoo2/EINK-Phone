@@ -40,15 +40,10 @@ def draw_apps(apps):
         draw.text((x, adding_y), apps[app_key]["Name"], font = font, fill = 0)
         apps[app_key]["Position"] = (x, adding_y)
 
-def text_rcv():
-    init_modem()
-    modem()
-
 apps = {
     "Messages": {
         "Name": "Messages",
-        #"Function": messages(),
-        "Function": text_rcv, NEVER GETS THE TEXT FIX
+        "Function": messages,
         "Position": (0, 0),
     },
     "Phone": {

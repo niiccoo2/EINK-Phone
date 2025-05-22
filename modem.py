@@ -20,11 +20,16 @@ SMS_DESTINATION = '6172060139'
 PIN = None  # SIM card PIN (if any)
 
 def handleSms(sms):
-    print(f"Received SMS message from {sms.number}: {sms.text}")
-    # If you want to clear the message from memory, you can delete it
-    # sms.delete()
+    number = sms.number
+    text = sms.text
+    print(number)
+    print(text)
+    print("I got to the bottom but I skipped some stuff")
+
+modem = None  # Global variable to hold the modem instance
 
 def init_modem():
+    global modem  # Declare that we are using the global variable
     print('Initializing modem...')
     modem = GsmModem(PORT, BAUDRATE, smsReceivedCallbackFunc=handleSms)
     modem.connect(PIN)
@@ -32,14 +37,17 @@ def init_modem():
     modem.smsTextMode = True
     print('Modem initialized.')
 
-def modem():
+def send_text(number, text):
+    print('Sending SMS to: {0}'.format(number))
+    response = modem.sendSms(number, text, waitForDeliveryReport=False)
+    if type(response) == SentSms:
+        print('SMS Delivered.')
+    else:
+        print('SMS Could not be sent')
+
+def messages():
     
-    #print('Sending SMS to: {0}'.format(SMS_DESTINATION))
-    #response = modem.sendSms(SMS_DESTINATION, SMS_TEXT, waitForDeliveryReport=False)
-    # if type(response) == SentSms:
-    #     print('SMS Delivered.')
-    # else:
-    #     print('SMS Could not be sent')
+   
     
     try:
         modem.running = True
@@ -55,4 +63,4 @@ def modem():
 
 if __name__ == "__main__":
     init_modem()
-    modem()  # Only runs if this file is the main script
+    messages()

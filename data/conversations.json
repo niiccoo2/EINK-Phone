@@ -2,13 +2,48 @@
   "conversations": {
     "+16174025606": {
       "contact_name": "+16174025606",
-      "last_active": "2025-05-22T13:59:00.790402",
-      "unread_count": 1,
+      "last_active": "2025-05-23T15:15:29.134245",
+      "unread_count": 2,
       "messages": [
         {
           "id": "msg_8682d611",
           "content": "Is this thing working?",
           "timestamp": "2025-05-22T13:59:00.790572",
+          "is_incoming": true,
+          "status": "unread"
+        },
+        {
+          "id": "msg_6655fd2e",
+          "content": "Hello World!",
+          "timestamp": "2025-05-23T15:15:29.134415",
+          "is_incoming": true,
+          "status": "unread"
+        }
+      ]
+    },
+    "+16172060139": {
+      "contact_name": "+16172060139",
+      "last_active": "2025-05-23T17:55:28.495609",
+      "unread_count": 3,
+      "messages": [
+        {
+          "id": "msg_f28ddce0",
+          "content": "Hello?",
+          "timestamp": "2025-05-23T17:53:03.210950",
+          "is_incoming": true,
+          "status": "unread"
+        },
+        {
+          "id": "msg_8a803f54",
+          "content": "Yo, how are you ",
+          "timestamp": "2025-05-23T17:53:03.805152",
+          "is_incoming": true,
+          "status": "unread"
+        },
+        {
+          "id": "msg_f5eebfac",
+          "content": "Ok",
+          "timestamp": "2025-05-23T17:55:28.495829",
           "is_incoming": true,
           "status": "unread"
         }

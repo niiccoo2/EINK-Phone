@@ -2,7 +2,6 @@
 # -*- coding:utf-8 -*-
 import sys
 import os
-picdir = "./pic"
 libdir = "./waveshare_epd"
 if os.path.exists(libdir):
     sys.path.append(libdir)
@@ -17,15 +16,11 @@ from modem import *
 
 epd = epd4in2_V2.EPD()
 
-font = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 30)
-
-
-
 epd.init()
 epd.Clear()
 
 def calculate_size(text):
-    bbox = draw.textbbox((0,0), text, font=font)
+    bbox = draw.textbbox((0,0), text, font=font(30))
     text_width = bbox[2] - bbox[0]
     text_height = bbox[3] - bbox[1]
     return (text_width, text_height)
@@ -37,7 +32,7 @@ def draw_apps(apps):
         width, height = calculate_size(apps[app_key]["Name"])
         x = (300 - width) // 2
         adding_y = adding_y + height + 40
-        draw.text((x, adding_y), apps[app_key]["Name"], font = font, fill = 0)
+        draw.text((x, adding_y), apps[app_key]["Name"], font = font(30), fill = 0)
         apps[app_key]["Position"] = (x, adding_y)
 
 apps = {
@@ -61,7 +56,7 @@ app_keys = list(apps.keys())
 
  ### Drawing the first screen ###
 draw_apps(apps)
-draw.text((45, 28), ">", font = font, fill = 0)
+draw.text((45, 28), ">", font = font(30), fill = 0)
 epd.display_Partial(epd.getbuffer(ScreenImage1))
 #################################
 
@@ -88,7 +83,7 @@ while True:
         
     current_app = app_keys[selected_index]
     print(current_app) # Printing the selected app
-    draw.text((45, apps[current_app]["Position"][1]), ">", font = font, fill = 0)
+    draw.text((45, apps[current_app]["Position"][1]), ">", font = font(30), fill = 0)
     draw_apps(apps) 
     epd.display_Partial(epd.getbuffer(ScreenImage1))
 

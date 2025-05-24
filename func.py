@@ -4,7 +4,10 @@ from waveshare_epd import epd4in2_V2
 import json
 from datetime import datetime
 import uuid
+from PIL import Image,ImageDraw,ImageFont
 
+def font(size):
+    return ImageFont.truetype(os.path.join("./pic", 'Font.ttc'), size)
 
 def clear_screen():
     epd = epd4in2_V2.EPD()
@@ -21,6 +24,8 @@ def sleep():
     print("Done!")
     exit()
 
+
+### Message saving stuff ###
 
 # Convert Python object to JSON string
 def to_json_string(data):

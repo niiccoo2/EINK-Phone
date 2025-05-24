@@ -7,7 +7,8 @@ import uuid
 from PIL import Image,ImageDraw,ImageFont
 
 def font(size):
-    return ImageFont.truetype(os.path.join("./pic", 'Font.ttc'), size)
+    return ImageFont.truetype(os.path.join("./pic", 'Font.ttc'), size) # Builit in font
+    # return ImageFont.truetype(os.path.join("./pic", 'Roboto-Regular.ttf'), size) # Font I added
 
 def clear_screen():
     epd = epd4in2_V2.EPD()
@@ -23,6 +24,12 @@ def sleep():
     epd4in2_V2.epdconfig.module_exit(cleanup=True)
     print("Done!")
     exit()
+
+def convert_time(input, version='hr-min'):
+    if version == 'hr-min':
+        dt_object = datetime.fromisoformat(input)
+        hour_minute = dt_object.strftime("%H:%M")
+        return hour_minute
 
 
 ### Message saving stuff ###
@@ -78,7 +85,7 @@ class MessageStore:
         conversations = self.get_all_conversations()
         return conversations.get(phone_number, {
             "contact_name": phone_number,
-            "last_active": None,
+            "last_message_time": None,
             "unread_count": 0,
             "messages": []
         })
@@ -95,13 +102,13 @@ class MessageStore:
         if phone_number not in data["conversations"]:
             data["conversations"][phone_number] = {
                 "contact_name": phone_number,  # Could be updated with contact name later
-                "last_active": datetime.now().isoformat(),
+                "last_message_time": datetime.now().isoformat(),
                 "unread_count": 1 if is_incoming else 0,
                 "messages": []
             }
         else:
             # Update conversation metadata
-            data["conversations"][phone_number]["last_active"] = datetime.now().isoformat()
+            data["conversations"][phone_number]["last_message_time"] = datetime.now().isoformat()
             if is_incoming and status == "unread":
                 data["conversations"][phone_number]["unread_count"] += 1
         

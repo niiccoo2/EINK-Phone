@@ -2,7 +2,7 @@
   "conversations": {
     "+16174025606": {
       "contact_name": "+16174025606",
-      "last_active": "2025-05-23T15:15:29.134245",
+      "last_message_time": "2025-05-23T15:15:29.134245",
       "unread_count": 2,
       "messages": [
         {
@@ -22,9 +22,9 @@
       ]
     },
     "+16172060139": {
-      "contact_name": "+16172060139",
-      "last_active": "2025-05-23T17:55:28.495609",
-      "unread_count": 3,
+      "contact_name": "Nico Smith",
+      "last_message_time": "2025-05-24T13:53:20.487674",
+      "unread_count": 7,
       "messages": [
         {
           "id": "msg_f28ddce0",
@@ -44,6 +44,34 @@
           "id": "msg_f5eebfac",
           "content": "Ok",
           "timestamp": "2025-05-23T17:55:28.495829",
+          "is_incoming": true,
+          "status": "unread"
+        },
+        {
+          "id": "msg_28b78e16",
+          "content": "This is a test!",
+          "timestamp": "2025-05-24T11:46:41.663374",
+          "is_incoming": true,
+          "status": "unread"
+        },
+        {
+          "id": "msg_72312f9c",
+          "content": "This is sooo cool",
+          "timestamp": "2025-05-24T13:43:02.282894",
+          "is_incoming": true,
+          "status": "unread"
+        },
+        {
+          "id": "msg_32c0ae48",
+          "content": "Will this update?",
+          "timestamp": "2025-05-24T13:51:03.585850",
+          "is_incoming": true,
+          "status": "unread"
+        },
+        {
+          "id": "msg_d486d562",
+          "content": "It updated! I am so happy!",
+          "timestamp": "2025-05-24T13:53:20.487819",
           "is_incoming": true,
           "status": "unread"
         }

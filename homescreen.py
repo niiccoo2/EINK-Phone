@@ -16,8 +16,13 @@ from modem import *
 
 epd = epd4in2_V2.EPD()
 
+skip_modem_init = False
+
 epd.init()
 epd.Clear()
+if skip_modem_init == False:
+    init_modem()
+print("Initialization done")
 
 def calculate_size(text):
     bbox = draw.textbbox((0,0), text, font=font(30))
@@ -80,6 +85,7 @@ while True:
     elif user_input == "e":
         print("Running the selected app")
         apps[app_keys[selected_index]]["Function"]()
+        clear_screen()
         
     current_app = app_keys[selected_index]
     print(current_app) # Printing the selected app

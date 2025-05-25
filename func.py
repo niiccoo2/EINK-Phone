@@ -6,6 +6,14 @@ from datetime import datetime
 import uuid
 from PIL import Image,ImageDraw,ImageFont
 
+### Screen tools ###
+
+def calculate_size(draw, text, font):
+    bbox = draw.textbbox((0,0), text, font=font)
+    text_width = bbox[2] - bbox[0]
+    text_height = bbox[3] - bbox[1]
+    return (text_width, text_height)
+
 def font(size):
     return ImageFont.truetype(os.path.join("./pic", 'Font.ttc'), size) # Builit in font
     # return ImageFont.truetype(os.path.join("./pic", 'Roboto-Regular.ttf'), size) # Font I added
@@ -14,6 +22,10 @@ def clear_screen():
     epd = epd4in2_V2.EPD()
     epd.init()
     epd.Clear()
+    #clear_draw(draw)
+
+def clear_draw(draw):
+    draw.rectangle([(0, 0), (1000, 1000)], fill="white")
 
 def sleep():
     epd = epd4in2_V2.EPD()
@@ -24,6 +36,8 @@ def sleep():
     epd4in2_V2.epdconfig.module_exit(cleanup=True)
     print("Done!")
     exit()
+
+######################################
 
 def convert_time(input, version='hr-min'):
     if version == 'hr-min':

@@ -16,25 +16,11 @@ from modem import *
 
 epd = epd4in2_V2.EPD()
 
-skip_modem_init = False
-
-epd.init()
-epd.Clear()
-if skip_modem_init == False:
-    init_modem()
-print("Initialization done")
-
-def calculate_size(text):
-    bbox = draw.textbbox((0,0), text, font=font(30))
-    text_width = bbox[2] - bbox[0]
-    text_height = bbox[3] - bbox[1]
-    return (text_width, text_height)
-
 def draw_apps(apps):
     adding_y = -40 # The y value of apps starts x pixels from the top of the screen
     for app_key in apps:
         #print(app_key)
-        width, height = calculate_size(apps[app_key]["Name"])
+        width, height = calculate_size(draw, apps[app_key]["Name"], font(30))
         x = (300 - width) // 2
         adding_y = adding_y + height + 40
         draw.text((x, adding_y), apps[app_key]["Name"], font = font(30), fill = 0)
@@ -43,35 +29,58 @@ def draw_apps(apps):
 apps = {
     "Messages": {
         "Name": "Messages",
-        "Function": messages,
+        "Function": messages_app,
         "Position": (0, 0),
     },
     "Phone": {
         "Name": "Phone",
         "Function": sleep,
         "Position": (0, 0),
+    },
+    "Sleep": {
+        "Name": "Sleep",
+        "Function": sleep,
+        "Position": (0, 0),
     }
 }
 
+print("Initializing screen...")
 ScreenImage1 = Image.new('1', (epd.height, epd.width), 255)  # 255: Set all pixels to white 
 
 draw = ImageDraw.Draw(ScreenImage1)
 selected_index = 0
 app_keys = list(apps.keys())
 
- ### Drawing the first screen ###
+skip_modem_init = False
+epd.init()
+epd.Clear()
+
+width, height = calculate_size(draw, "Loading...", font(30))
+x = (300 - width) // 2
+y = (400 - height) // 2
+draw.text((x, y), "Loading...", font = font(30), fill = 0) # After screen works, say loading
+epd.display_Partial(epd.getbuffer(ScreenImage1))
+#epd.sleep()
+print('Screen initialized.\n')
+
+if skip_modem_init == False:
+    init_modem()
+
+
+
+### Drawing the first screen ###
+clear_screen()
+clear_draw(draw)
 draw_apps(apps)
 draw.text((45, 28), ">", font = font(30), fill = 0)
 epd.display_Partial(epd.getbuffer(ScreenImage1))
+print("Initialization done!")
 #################################
 
 while True:
     user_input = input("Input: ")
-    # Version 1. Seems better than version 2
-    draw.rectangle([(0, 0), (1000, 1000)], fill="white") # 1000, 1000, makes the white rectangle cover the entire screen
-    # Version 2
-    # ScreenImage1 = Image.new('1', (epd.height, epd.width), 255)  # Making a new image
-    # draw = ImageDraw.Draw(ScreenImage1) # Making a new draw
+    # draw.rectangle([(0, 0), (1000, 1000)], fill="white") # 1000, 1000, makes the white rectangle cover the entire screen
+    clear_draw(draw)
     if user_input == "exit":
         break
     elif user_input == "s":
@@ -97,5 +106,5 @@ while True:
 
 
 epd.sleep()
-print("Done")
+print("Done!")
 exit()

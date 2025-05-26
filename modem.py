@@ -54,6 +54,28 @@ def extract_conversation_details(filepath):
     
     return conversation_details
 
+def load_conversation_data(phone_number):
+    # Load the conversation data from the JSON file
+    data = read_json_file("data/conversations.json")
+    
+    # Check if the data is valid and contains conversations
+    if not data or "conversations" not in data:
+        return {}
+    
+    # Initialize a dictionary to hold the conversation details
+    conversation = {}
+    # print(data["conversations"])
+    # Check if the phone number exists in the conversations
+    if phone_number in data["conversations"]:
+        details = data["conversations"][phone_number]
+        conversation["contact_name"] = details.get("contact_name", "Unknown")
+        conversation["messages"] = details.get("messages", [])
+        conversation["last_message_time"] = details.get("last_message_time", "Unknown")
+    else:
+        print(f"No conversation found for {phone_number}")
+    
+    return conversation
+
 conversation_details = extract_conversation_details("data/conversations.json")
 conversation_keys = list(conversation_details.keys())
 
@@ -80,7 +102,7 @@ def send_sms_message(number, text): # Send a text, not done yet
     else:
         print('SMS Could not be sent')
 
-def draw_message(start_location, name, time, body, selected = False): # Draws the message neatly on the screen
+def draw_conversation(start_location, name, time, body, selected = False): # Draws the message neatly on the screen
     # Calculate positions based on the starting location
     name_width, name_height = calculate_size(draw, name, font(20))
     draw.text((10, start_location + 10), str(name), font=font(20), fill=0)
@@ -89,19 +111,9 @@ def draw_message(start_location, name, time, body, selected = False): # Draws th
     draw.line([(0, start_location + 90), (300, start_location + 90)], fill=None, width=2, joint=None)
     if selected == True:
         draw.line([(10, start_location+17+name_height), (10+name_width, start_location+17+name_height)], fill=None, width=2, joint=None)
-        print(name_width, name_height)
+        #print(name_width, name_height)
 
-# def draw_messages_screen(selected_index, adding_y=0):
-#     global conversation_details
-#     index = 0
-#     for number, details in conversation_details.items():
-#         if index == selected_index:
-#             draw_message(adding_y, details['name'], convert_time(details['last_message_time']), details['last_message'], True)
-#         else:
-#             draw_message(adding_y, details['name'], convert_time(details['last_message_time']), details['last_message'])
-#         adding_y = adding_y + 100
-#         index = index + 1
-#     epd.display_Partial(epd.getbuffer(ScreenImage1))
+
 
 def draw_messages_screen(selected_index, current_page):
     global conversation_details
@@ -111,13 +123,22 @@ def draw_messages_screen(selected_index, current_page):
     for index, number in enumerate(conversation_keys[start_index:end_index]):
         details = conversation_details[number]
         if index == selected_index:
-            draw_message(index * 100, details['name'], convert_time(details['last_message_time']), details['last_message'], True)
+            draw_conversation(index * 100, details['name'], convert_time(details['last_message_time']), details['last_message'], True)
         else:
-            draw_message(index * 100, details['name'], convert_time(details['last_message_time']), details['last_message'])
+            draw_conversation(index * 100, details['name'], convert_time(details['last_message_time']), details['last_message'])
     epd.display_Partial(epd.getbuffer(ScreenImage1))
 
 def open_conversation(number):
-    pass
+    clear_draw(draw)
+    conversation = load_conversation_data(number)
+    print(f"Contact Name: {conversation['contact_name']}")
+    for message in conversation.get('messages', []):
+        print(f"Message ID: {message.get('id', 'N/A')}")
+        print(f"Content: {message.get('content', 'N/A')}")
+        print(f"Timestamp: {message.get('timestamp', 'N/A')}")
+        print(f"Is Incoming: {message.get('is_incoming', 'N/A')}")
+        print(f"Status: {message.get('status', 'N/A')}")
+        print("-" * 40)  # Separator for readability
 
 def messages_app(): 
     global conversation_details
@@ -142,6 +163,8 @@ def messages_app():
             break
         elif user_input == "s":
             selected_index += 1
+            if selected_index + (current_page) * conversations_per_page >= len(conversation_keys):
+                selected_index = (len(conversation_keys) % conversations_per_page) - 1
             if selected_index >= conversations_per_page:
                 selected_index = 0
                 current_page += 1
@@ -154,6 +177,8 @@ def messages_app():
                 current_page -= 1
                 if current_page < 0:
                     current_page = 0
+                    selected_index = 0
+        
         ### Logic that skips pages ###
         # elif user_input == "n":  # Next page
         #     current_page += 1
@@ -169,7 +194,9 @@ def messages_app():
             print("Running the selected app")
             open_conversation(conversation_keys[selected_index + current_page * conversations_per_page])
             clear_screen()
-        
+        print(selected_index)
+        print(current_page)
+        print(conversation_keys)
         clear_draw(draw)
         draw_messages_screen(selected_index, current_page)
 
@@ -189,22 +216,12 @@ def messages_app():
 
 
 if __name__ == "__main__":
+    # open_conversation("+16172060139")
     epd.init()
     epd.Clear()
-    print("Done with the clear")
-    # init_modem()
-    # messages()
-    # draw.rectangle([(0, 0), (1000, 1000)], fill="white")
-    clear_draw(draw)
-    draw_message(0, "Dave", "19:51", "tmrw at 11", True)
-    draw_message(100, "Dylan", "18:38", "Are you here?")
-    draw_message(200, "Chris", "10:12", "I think it will work.")
-    draw_message(300, "Bob W7JNM", "09:23", "CW 14.035")
+    text = "This is a lot of text, but we need a lot of, text so that we can test, if this thing wraps good."
+    draw_with_wrap(draw, (10, 10), text, 200, font=font(15), alignment='right')
     epd.display_Partial(epd.getbuffer(ScreenImage1))
     epd.sleep()
+    exit()
 
-    # for number, details in conversation_details.items():
-    #     print(f"\nNumber: {number}")
-    #     print(f"Name: {details['name']}")
-    #     print("\n----")
-    #print(conversation_details)

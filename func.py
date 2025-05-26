@@ -37,6 +37,37 @@ def sleep():
     print("Done!")
     exit()
 
+def draw_with_wrap(draw, location, text, wrap_width, font, alignment='left'): # We are only using the y value in location for now, it just makes more sense for rn
+    words = text.split()
+    running_width = 0
+    adding_y = location[1]
+    line_draw = []
+    left_align_x_value = 10
+    right_align_x_value = 290
+    for word in words:
+        width, height = calculate_size(draw, word, font=font)
+        running_width += width
+        if running_width < wrap_width:
+            line_draw.append(word)
+        else:
+            if alignment == 'left':
+                x_position = left_align_x_value
+            else:
+                x_position = right_align_x_value - calculate_size(draw, ' '.join(line_draw), font=font)[0]
+            draw.text((x_position, adding_y), ' '.join(line_draw), font=font, fill=0)
+            adding_y += calculate_size(draw, ' '.join(line_draw), font=font)[1] + 5  # Add space between lines
+            line_draw = [word]  # Start new line with the current word
+            running_width = width  # Reset running width to the current word's width
+    # Draw any remaining words in the last line
+    if alignment == 'left':
+                x_position = left_align_x_value
+    else:
+        x_position = right_align_x_value - calculate_size(draw, ' '.join(line_draw), font=font)[0]
+    if line_draw:
+        draw.text((x_position, adding_y), ' '.join(line_draw), font=font, fill=0)
+    
+
+
 ######################################
 
 def convert_time(input, version='hr-min'):

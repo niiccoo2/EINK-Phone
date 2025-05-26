@@ -37,8 +37,8 @@
     },
     "+16172060139": {
       "contact_name": "Nico Smith",
-      "last_message_time": "2025-05-24T13:53:20.487674",
-      "unread_count": 7,
+      "last_message_time": "2025-05-25T19:49:43.095918",
+      "unread_count": 8,
       "messages": [
         {
           "id": "msg_f28ddce0",
@@ -86,6 +86,13 @@
           "id": "msg_d486d562",
           "content": "It updated! I am so happy!",
           "timestamp": "2025-05-24T13:53:20.487819",
+          "is_incoming": true,
+          "status": "unread"
+        },
+        {
+          "id": "msg_5e90bb36",
+          "content": "YO ARE YOU THERE?",
+          "timestamp": "2025-05-25T19:49:43.096130",
           "is_incoming": true,
           "status": "unread"
         }

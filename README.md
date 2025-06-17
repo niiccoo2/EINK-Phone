@@ -1,4 +1,5 @@
 [Google Doc Notes Link](https://docs.google.com/document/d/1l_P9BNs8-fzjLHjxsxwmtQVHC8uADbmZvHsqvaNpZNw/edit?usp=sharing)
+[Docs link for pico version](https://docs.google.com/document/d/1WdVnLDW4LZ5mjuCLy1hVp1n7MNubI6F_SzgGbY42siQ/edit?usp=sharing)
 
 ### Sunday, May 11:
 * Saw the light phone 3 and thought it cost too much.
@@ -102,5 +103,15 @@
 
 ### Saturday, June 7:
 * Tried to get the modem to call my phone, having issues
+* Made an account on some b2b site to update firmware.
 
 *2 hours*
+
+# Highway project starts here:
+I worked on this a bunch with my own time and money. I got a ok prototype but I'm deciding to change to a custom pcb and using the SIM7000G so that the final device will be much smaller.
+
+### Tuesday, June 17:
+* Decided to change from using a pi zero 2 to a pi pico
+* Pi pico will use much less power
+* Using a SIM7000G modem
+* Making a custom PCB

@@ -1760,6 +1760,204 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:Thermistor_US"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TH"
+				(at 2.54 1.27 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Thermistor_US"
+				(at -2.54 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify bottom)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Thermistor, temperature dependent resistor, US symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res thermistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Thermistor_US_0_1"
+				(polyline
+					(pts
+						(xy -1.905 2.54) (xy -1.905 1.27) (xy 1.905 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 -1.27) (xy 1.905 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Thermistor_US_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "MCU_Module:RaspberryPi_Pico_Extensive"
 			(pin_names
 				(offset 0.762)
@@ -3036,10 +3234,22 @@
 		(uuid "cca69c9a-6849-44e6-8d12-8995565be3e1")
 	)
 	(junction
+		(at 120.65 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0f8d0a03-2e08-48aa-ab5f-3e3d9f2fe1b5")
+	)
+	(junction
 		(at 237.49 121.92)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "1c7990e9-2dcb-4926-90a4-f3ba3448eeb6")
+	)
+	(junction
+		(at 167.64 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8288fc62-5063-4ad9-887a-efd234f72038")
 	)
 	(junction
 		(at 175.26 162.56)
@@ -3082,6 +3292,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fb7c45c7-161e-4abb-a44b-2d1540221696")
+	)
+	(junction
+		(at 124.46 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fca57228-3b1f-44b6-87a3-e45579d156e0")
 	)
 	(wire
 		(pts
@@ -3235,7 +3451,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 184.15) (xy 99.06 184.15)
+			(xy 146.05 184.15) (xy 124.46 184.15)
 		)
 		(stroke
 			(width 0)
@@ -3305,6 +3521,16 @@
 	)
 	(wire
 		(pts
+			(xy 130.81 179.07) (xy 133.35 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "400341e3-2e84-438b-a1e9-b88aa18b8748")
+	)
+	(wire
+		(pts
 			(xy 21.59 181.61) (xy 29.21 181.61)
 		)
 		(stroke
@@ -3345,13 +3571,23 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 184.15) (xy 175.26 184.15)
+			(xy 146.05 184.15) (xy 167.64 184.15)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "5b3f0fa1-d978-42ea-837c-f711ea155f42")
+	)
+	(wire
+		(pts
+			(xy 99.06 184.15) (xy 120.65 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5b8e7e0d-f472-4bcf-905b-8fa096c6139a")
 	)
 	(wire
 		(pts
@@ -3385,6 +3621,16 @@
 	)
 	(wire
 		(pts
+			(xy 167.64 184.15) (xy 175.26 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "612e2ca9-d94f-40ba-9b5e-b830ef788dec")
+	)
+	(wire
+		(pts
 			(xy 33.02 132.08) (xy 33.02 52.07)
 		)
 		(stroke
@@ -3405,6 +3651,16 @@
 	)
 	(wire
 		(pts
+			(xy 132.08 175.26) (xy 132.08 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66271920-4f10-4a0a-ad24-f4d6d8c69f62")
+	)
+	(wire
+		(pts
 			(xy 175.26 153.67) (xy 205.74 153.67)
 		)
 		(stroke
@@ -3412,6 +3668,26 @@
 			(type default)
 		)
 		(uuid "66367a03-9283-4379-a3d8-dd990763e25b")
+	)
+	(wire
+		(pts
+			(xy 120.65 176.53) (xy 120.65 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "66ea8655-736a-44e4-bd06-85a9e1ddf44d")
+	)
+	(wire
+		(pts
+			(xy 120.65 175.26) (xy 132.08 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68e49283-0fbc-4f0d-9afa-ee23f864c21d")
 	)
 	(wire
 		(pts
@@ -3495,6 +3771,16 @@
 	)
 	(wire
 		(pts
+			(xy 132.08 176.53) (xy 133.35 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8d100c9f-527f-42a4-8a98-c98ece736d40")
+	)
+	(wire
+		(pts
 			(xy 160.02 166.37) (xy 158.75 166.37)
 		)
 		(stroke
@@ -3512,6 +3798,16 @@
 			(type default)
 		)
 		(uuid "8f8e8568-b988-4df1-b934-9e348539c4a2")
+	)
+	(wire
+		(pts
+			(xy 124.46 176.53) (xy 130.81 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "92138c38-9f18-46c7-82d0-e6bfee870414")
 	)
 	(wire
 		(pts
@@ -3625,6 +3921,16 @@
 	)
 	(wire
 		(pts
+			(xy 158.75 171.45) (xy 167.64 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "af9f048d-55cf-4f81-9f96-7508fe6d9490")
+	)
+	(wire
+		(pts
 			(xy 35.56 33.02) (xy 66.04 33.02)
 		)
 		(stroke
@@ -3632,6 +3938,16 @@
 			(type default)
 		)
 		(uuid "b430380f-f2e6-4dc1-9243-e73c425158fe")
+	)
+	(wire
+		(pts
+			(xy 167.64 176.53) (xy 167.64 171.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b5afb780-514b-42b1-bf86-93cba7b775ac")
 	)
 	(wire
 		(pts
@@ -3675,6 +3991,16 @@
 	)
 	(wire
 		(pts
+			(xy 124.46 184.15) (xy 120.65 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd78372a-1306-4a6c-9b44-451901bf4a71")
+	)
+	(wire
+		(pts
 			(xy 205.74 153.67) (xy 205.74 160.02)
 		)
 		(stroke
@@ -3682,6 +4008,16 @@
 			(type default)
 		)
 		(uuid "d1bc3aad-cbf4-4cc2-b634-a95b015fe92c")
+	)
+	(wire
+		(pts
+			(xy 130.81 176.53) (xy 130.81 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d1da28a4-feeb-4678-b31c-83cc3c7b59aa")
 	)
 	(wire
 		(pts
@@ -3862,6 +4198,75 @@
 			(type default)
 		)
 		(uuid "fea6ce95-d02e-42a5-af00-9791a8c84a70")
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 120.65 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "02c1e2d3-86b6-4262-9761-4443ba28c142")
+		(property "Reference" "R3"
+			(at 116.586 179.578 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "3k Ohms"
+			(at 110.744 181.864 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 118.872 180.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 120.65 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 120.65 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "ffcbfbb5-ceb7-4817-ae01-78c131a088a9")
+		)
+		(pin "1"
+			(uuid "8bf38151-46f3-406c-b644-88fe6a8509c5")
+		)
+		(instances
+			(project ""
+				(path "/4bf26167-9f78-4c1c-a06e-a60ebabd29ee"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Connector:USB_C_Plug_USB2.0")
@@ -4097,6 +4502,75 @@
 			(project ""
 				(path "/4bf26167-9f78-4c1c-a06e-a60ebabd29ee"
 					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 124.46 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "34ae743c-830b-4002-8dc5-9c0883f1c893")
+		(property "Reference" "R2"
+			(at 125.73 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "620 Ohms"
+			(at 125.73 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 122.682 180.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 124.46 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 124.46 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "43d7ea96-7ef8-4d90-9555-c8b7f00ecb33")
+		)
+		(pin "1"
+			(uuid "edcc3dac-e221-40a5-85d9-82df824564cd")
+		)
+		(instances
+			(project ""
+				(path "/4bf26167-9f78-4c1c-a06e-a60ebabd29ee"
+					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -4645,6 +5119,75 @@
 			)
 		)
 	)
+	(symbol
+		(lib_id "Device:Thermistor_US")
+		(at 167.64 180.34 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f8a5893f-379c-46a8-88e9-5a5c90205d9a")
+		(property "Reference" "TH1"
+			(at 166.116 185.928 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Thermistor_US"
+			(at 161.036 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 167.64 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 167.64 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Thermistor, temperature dependent resistor, US symbol"
+			(at 167.64 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7d321fa6-029d-4ad6-8c43-3da4d678b982")
+		)
+		(pin "2"
+			(uuid "745ba69c-e541-4673-a05e-03cec19049c0")
+		)
+		(instances
+			(project ""
+				(path "/4bf26167-9f78-4c1c-a06e-a60ebabd29ee"
+					(reference "TH1")
+					(unit 1)
+				)
+			)
+		)
+	)
 	(sheet
 		(at 22.86 35.56)
 		(size 17.78 10.16)
@@ -4740,7 +5283,7 @@
 			)
 		)
 		(instances
-			(project "messenger"
+			(project "EINK-Phone"
 				(path "/4bf26167-9f78-4c1c-a06e-a60ebabd29ee"
 					(page "2")
 				)
